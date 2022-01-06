@@ -15,5 +15,6 @@ main() {
     var result = repository('X');
     String tester = result.placa;
     expect(result.placa, tester);
+    String name;
   });
 }
