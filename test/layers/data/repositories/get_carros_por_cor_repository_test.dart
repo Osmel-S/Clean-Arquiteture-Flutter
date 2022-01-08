@@ -11,7 +11,7 @@ main() {
     expect(result, isNotNull);
   });
 
-  test('Devolver um value passando uma keyd', () {
+  test('Devolver um value passando uma key', () {
     var result = repository('X');
     String tester = result.placa;
     expect(result.placa, tester);
