@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:teste_project/layers/apresentation/carro_controlle.dart';
 import 'package:teste_project/layers/data/datasources/local/get_carros_por_cor_local_datasource_imp.dart';
 import 'package:teste_project/layers/data/repositories/get_carros_por_cor_repository_imp.dart';
@@ -9,15 +10,19 @@ import 'package:teste_project/layers/domain/usecases/salvar_carro_favorito/salva
 class CarroPage extends StatelessWidget {
   //injeção e implementações
   //depois essa parte vai ser automatizada
-  CarroController controller = CarroController(
-      GetCarrosPorCorUserCaseImp(
-          GetCarrosPorCorRepositoryImp(GetCarrosPorCorLocalDataSourceImp())),
-      SalvarCarroFavoritoUseCaseImp(SalvarCarroFavoritoRepositoryImp()));
+  // CarroController controller = CarroController(
+  //     GetCarrosPorCorUserCaseImp(
+  //         GetCarrosPorCorRepositoryImp(GetCarrosPorCorLocalDataSourceImp())),
+  //     SalvarCarroFavoritoUseCaseImp(SalvarCarroFavoritoRepositoryImp()));
+
+  //Automatizando
+  CarroController controller = GetIt.I.get<CarroController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("aplication"),
+      appBar: AppBar(
+        title: Text("application"),
       ),
       body: Container(
         child: Text(controller.carro.placa),
